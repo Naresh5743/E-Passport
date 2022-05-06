@@ -1,0 +1,29 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<ScheduleAppointment>
+@{
+    ViewData["Title"] = "Available Appointments";
+}
+<h3>All Passport Office Appointments available right now.</h3>
+<br />
+<p>Schedule a Appointment <a asp-controller="ScheduleAppointment" asp-action="AddAppointment">Here</a></p>
+<div>
+    <table>
+        <tr>
+            <th>MonthID</th>
+            <th>MonthName</th>
+            <th>AvailableDays</th>
+            <th>TimeSlots</th>
+        </tr>
+        @foreach(var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.MonthID</td>
+                <td>@appointment.MonthName</td>
+                <td>@appointment.AvailableDays</td>
+                <td>@appointment.TimeSlots</td>
+            </tr>
+        }
+    </table>
+</div>
